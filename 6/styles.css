@@ -22,8 +22,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: var(--white);
-    background-color: var(--dark-blue);
+    color: var(--black);
 }
 
 /* Navbar */
@@ -287,12 +286,12 @@ body {
 
 /* Services Section */
 .services-section {
-    background-color: var(--dark-blue);
+    background-color: var(--white);
     padding: 0 0 5rem 0;
 }
 
 .section-title {
-    color: var(--white);
+    color: var(--black);
     font-size: 2.5rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -413,7 +412,7 @@ body {
 
 /* Operations Section */
 .operations-section {
-    background-color: var(--darker-blue);
+    background-color: var(--white);
     padding: 5rem 0;
 }
 
@@ -421,10 +420,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
     position: relative;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 .operations-list::before {
@@ -447,120 +444,61 @@ body {
 
 .operation-step {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
+    gap: 1.5rem;
     position: relative;
     z-index: 2;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    padding: 2.5rem 2rem;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-    transition: all 0.4s ease;
+    background-color: var(--white);
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
     border: 2px solid transparent;
-    min-width: 280px;
-    backdrop-filter: blur(15px);
-    overflow: hidden;
-}
-
-.operation-step::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-gold), var(--orange));
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.operation-step:hover::before {
-    transform: scaleX(1);
+    min-width: 300px;
 }
 
 .operation-step:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+    transform: scale(1.05) translateX(10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     border-color: var(--primary-gold);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
 }
 
 .step-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--white);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    transition: all 0.4s ease;
-    margin-bottom: 1.5rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.step-icon::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
-}
-
-.operation-step:hover .step-icon::before {
-    transform: translateX(100%);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .operation-step:hover .step-icon {
-    transform: scale(1.15) rotate(10deg);
+    transform: scale(1.1) rotate(5deg);
 }
 
 .step-analyze {
-    background: linear-gradient(135deg, var(--green) 0%, #20c997 100%);
-    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+    background-color: var(--green);
 }
 
 .step-implement {
-    background: linear-gradient(135deg, var(--blue) 0%, #0056b3 100%);
-    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+    background-color: var(--blue);
 }
 
 .step-optimize {
-    background: linear-gradient(135deg, var(--pink) 0%, #d63384 100%);
-    box-shadow: 0 8px 25px rgba(232, 62, 140, 0.3);
+    background-color: var(--pink);
 }
 
 .step-text {
-    color: var(--white);
+    color: var(--black);
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 1.3rem;
-    margin-top: 0.5rem;
-    position: relative;
-}
-
-.step-text::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: var(--primary-gold);
-    transition: width 0.3s ease;
-}
-
-.operation-step:hover .step-text::after {
-    width: 60%;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
 }
 
 /* Testimonials Section */
@@ -645,7 +583,7 @@ body {
 
 /* Features Section */
 .features-section {
-    background-color: var(--dark-blue);
+    background-color: var(--white);
     padding: 5rem 0;
 }
 
@@ -654,7 +592,7 @@ body {
 }
 
 .feature-line {
-    color: var(--primary-gold);
+    color: var(--orange);
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
@@ -666,17 +604,16 @@ body {
 }
 
 .features-image {
-    border: 3px solid var(--primary-gold);
+    border: 3px solid var(--pink);
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
 }
 
 .features-image:hover {
     transform: scale(1.02);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-    border-color: var(--white);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
 .features-image img {
@@ -696,13 +633,13 @@ body {
 
 /* Final CTA Section */
 .final-cta-section {
-    background-color: var(--darker-blue);
+    background-color: var(--white);
     padding: 5rem 0;
     text-align: center;
 }
 
 .final-cta-headline {
-    color: var(--white);
+    color: var(--black);
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 2rem;
@@ -909,32 +846,6 @@ body {
     opacity: 1;
 }
 
-/* Operation Cards Animation */
-.operation-step {
-    animation: cardFloat 6s ease-in-out infinite;
-}
-
-.operation-step:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.operation-step:nth-child(2) {
-    animation-delay: 2s;
-}
-
-.operation-step:nth-child(3) {
-    animation-delay: 4s;
-}
-
-@keyframes cardFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
-}
-
-.operation-step:hover {
-    animation-play-state: paused;
-}
-
 /* Responsive footer */
 @media (max-width: 768px) {
     .footer-section {
@@ -957,15 +868,6 @@ body {
     .newsletter-form .input-group {
         max-width: 100%;
     }
-}
-
-/* Dark Theme Enhancements */
-.dark-theme {
-    background-color: var(--dark-blue);
-}
-
-.dark-theme .container {
-    background-color: transparent;
 }
 
 /* Responsive Design */
@@ -996,8 +898,9 @@ body {
     }
     
     .operation-step {
-        min-width: 250px;
-        padding: 2rem 1.5rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
     }
     
     .operations-list::before {
@@ -1077,7 +980,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--dark-blue);
+    background: var(--light-gray);
 }
 
 ::-webkit-scrollbar-thumb {

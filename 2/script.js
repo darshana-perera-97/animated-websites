@@ -1,24 +1,57 @@
 // Initialize GSAP and ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-// Custom Cursor
+// Device detection and responsive settings
+const isMobile = window.innerWidth <= 768;
+const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
+const isLandscape = window.innerHeight < window.innerWidth && window.innerHeight <= 500;
+
+// Performance optimization for different devices
+const animationSettings = {
+    mobile: {
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power2.out'
+    },
+    tablet: {
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out'
+    },
+    desktop: {
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out'
+    }
+};
+
+const currentSettings = isMobile ? animationSettings.mobile : 
+                      isTablet ? animationSettings.tablet : 
+                      animationSettings.desktop;
+
+// Custom Cursor (only on desktop)
 const cursor = document.getElementById('customCursor');
 const cursorHover = document.querySelectorAll('a, button, .zone-option, .pack-option, .location-item');
 
-document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-});
+if (!isMobile) {
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
 
-cursorHover.forEach(element => {
-    element.addEventListener('mouseenter', () => {
-        cursor.classList.add('hover');
+    cursorHover.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+        });
     });
-    
-    element.addEventListener('mouseleave', () => {
-        cursor.classList.remove('hover');
-    });
-});
+} else {
+    // Hide cursor on mobile
+    if (cursor) cursor.style.display = 'none';
+}
 
 // Scroll Progress Bar
 const scrollProgress = document.querySelector('.scroll-progress-bar');
@@ -48,139 +81,324 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
-// Hero Animations
-gsap.timeline()
-    .from('.hero-title .title-line', {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: 'power3.out'
-    })
-    .from('.hero-subtitle', {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
-    }, '-=0.5')
-    .from('.hero-buttons', {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
-    }, '-=0.5')
-    .from('.vending-machine', {
-        x: 100,
-        opacity: 0,
-        duration: 1.5,
-        ease: 'power3.out'
-    }, '-=0.8')
-    .from('.bg-element', {
-        scale: 0,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.1,
-        ease: 'back.out(1.7)'
-    }, '-=1');
-
-// Vending Machine Day/Night Morph Animation
-const vendingMachine = document.getElementById('vendingMachine');
-let isDay = true;
-
-function toggleDayNight() {
-    isDay = !isDay;
+// Animated Stats Counter with responsive timing
+function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
     
-    gsap.to('.machine-body', {
-        background: isDay ? 'linear-gradient(145deg, #2C3E50, #34495E)' : 'linear-gradient(145deg, #1a1a1a, #2d2d2d)',
-        duration: 2,
-        ease: 'power2.inOut'
-    });
-    
-    gsap.to('.machine-screen', {
-        background: isDay ? '#1A1A1A' : '#000000',
-        duration: 2,
-        ease: 'power2.inOut'
-    });
-    
-    gsap.to('.machine-door', {
-        background: isDay ? 'linear-gradient(145deg, #34495E, #2C3E50)' : 'linear-gradient(145deg, #2d2d2d, #1a1a1a)',
-        duration: 2,
-        ease: 'power2.inOut'
+    statNumbers.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const duration = isMobile ? 1500 : 2000; // Faster on mobile
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            stat.textContent = Math.floor(current);
+        }, 16);
     });
 }
 
-// Toggle day/night every 10 seconds
-setInterval(toggleDayNight, 10000);
+// Responsive Hero Animations
+const heroTimeline = gsap.timeline();
 
-// Scroll-triggered animations
-gsap.utils.toArray('.feature-card').forEach((card, index) => {
-    gsap.from(card, {
-        scrollTrigger: {
-            trigger: card,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse'
-        },
-        y: 50,
+// Base animations that work on all devices
+heroTimeline
+    .from('.hero-title .title-line', {
+        y: isMobile ? 30 : 50,
         opacity: 0,
-        duration: 0.8,
-        delay: index * 0.1,
-        ease: 'power3.out'
-    });
-});
-
-// Step cards animations
-gsap.utils.toArray('.step-card').forEach((card, index) => {
-    gsap.from(card, {
-        scrollTrigger: {
-            trigger: card,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse'
-        },
-        x: index % 2 === 0 ? -50 : 50,
+        duration: currentSettings.duration,
+        stagger: currentSettings.stagger,
+        ease: currentSettings.ease
+    })
+    .from('.hero-subtitle', {
+        y: isMobile ? 20 : 30,
         opacity: 0,
-        duration: 1,
-        delay: index * 0.2,
-        ease: 'power3.out'
-    });
-});
-
-// Location items animations
-gsap.utils.toArray('.location-item').forEach((item, index) => {
-    gsap.from(item, {
-        scrollTrigger: {
-            trigger: item,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse'
-        },
-        x: -30,
+        duration: currentSettings.duration,
+        ease: currentSettings.ease
+    }, '-=0.5')
+    .from('.hero-buttons', {
+        y: isMobile ? 20 : 30,
         opacity: 0,
-        duration: 0.8,
-        delay: index * 0.1,
-        ease: 'power3.out'
+        duration: currentSettings.duration,
+        ease: currentSettings.ease
+    }, '-=0.5');
+
+// Add stats animation only if not on very small screens
+if (window.innerWidth > 320) {
+    heroTimeline.from('.hero-stats', {
+        y: isMobile ? 20 : 30,
+        opacity: 0,
+        duration: currentSettings.duration,
+        ease: currentSettings.ease
+    }, '-=0.3');
+}
+
+// Add vending machine animation only on larger screens
+if (!isMobile) {
+    heroTimeline.from('.vending-machine', {
+        x: 100,
+        opacity: 0,
+        duration: currentSettings.duration * 1.5,
+        ease: currentSettings.ease
+    }, '-=0.8');
+}
+
+// Add background animations only on larger screens
+if (!isMobile) {
+    heroTimeline
+        .from('.shape', {
+            scale: 0,
+            opacity: 0,
+            duration: currentSettings.duration,
+            stagger: currentSettings.stagger * 0.5,
+            ease: 'back.out(1.7)'
+        }, '-=1')
+        .from('.particle', {
+            scale: 0,
+            opacity: 0,
+            duration: currentSettings.duration * 0.8,
+            stagger: currentSettings.stagger * 0.25,
+            ease: 'back.out(1.7)'
+        }, '-=0.8')
+        .from('.icon-item', {
+            y: isMobile ? 20 : 30,
+            opacity: 0,
+            duration: currentSettings.duration * 0.8,
+            stagger: currentSettings.stagger,
+            ease: currentSettings.ease
+        }, '-=0.6')
+        .from('.wave', {
+            y: isMobile ? 30 : 50,
+            opacity: 0,
+            duration: currentSettings.duration,
+            stagger: currentSettings.stagger * 2,
+            ease: currentSettings.ease
+        }, '-=0.4');
+}
+
+// Call stats animation after hero animations complete
+heroTimeline.call(() => {
+    setTimeout(animateStats, isMobile ? 300 : 500);
+});
+
+// Responsive background animations (only on larger screens)
+if (!isMobile) {
+    // Animated background elements
+    gsap.to('.gradient-overlay', {
+        scale: 1.1,
+        duration: 8,
+        ease: 'power2.inOut',
+        yoyo: true,
+        repeat: -1
+    });
+
+    // Floating shapes animation
+    gsap.to('.shape', {
+        y: -20,
+        rotation: 360,
+        duration: 6,
+        ease: 'power2.inOut',
+        yoyo: true,
+        repeat: -1,
+        stagger: 1
+    });
+
+    // Particles animation
+    gsap.to('.particle', {
+        y: -100,
+        x: 50,
+        opacity: 0,
+        duration: 10,
+        ease: 'power1.out',
+        stagger: 1,
+        repeat: -1
+    });
+
+    // Icon floating animation
+    gsap.to('.icon-item', {
+        y: -20,
+        rotation: 5,
+        duration: 8,
+        ease: 'power2.inOut',
+        yoyo: true,
+        repeat: -1,
+        stagger: 2
+    });
+
+    // Wave animation
+    gsap.to('.wave', {
+        y: -10,
+        duration: 6,
+        ease: 'power2.inOut',
+        yoyo: true,
+        repeat: -1,
+        stagger: 2
+    });
+}
+
+// Vending Machine Day/Night Morph Animation (only on larger screens)
+if (!isMobile) {
+    const vendingMachine = document.getElementById('vendingMachine');
+    let isDay = true;
+
+    function toggleDayNight() {
+        isDay = !isDay;
+        
+        gsap.to('.machine-body', {
+            background: isDay ? 'linear-gradient(145deg, #2C3E50, #34495E)' : 'linear-gradient(145deg, #1a1a1a, #2d2d2d)',
+            duration: 2,
+            ease: 'power2.inOut'
+        });
+        
+        gsap.to('.machine-screen', {
+            background: isDay ? '#1A1A1A' : '#000000',
+            duration: 2,
+            ease: 'power2.inOut'
+        });
+        
+        gsap.to('.machine-door', {
+            background: isDay ? 'linear-gradient(145deg, #34495E, #2C3E50)' : 'linear-gradient(145deg, #2d2d2d, #1a1a1a)',
+            duration: 2,
+            ease: 'power2.inOut'
+        });
+    }
+
+    // Toggle day/night every 10 seconds
+    setInterval(toggleDayNight, 10000);
+}
+
+// Responsive button interactions
+document.querySelectorAll('.animated-btn').forEach(button => {
+    button.addEventListener('mouseenter', () => {
+        if (!isMobile) {
+            gsap.to(button, {
+                scale: 1.05,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+            
+            // Animate button text and icon
+            gsap.to(button.querySelector('.btn-text'), {
+                x: 5,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+            
+            gsap.to(button.querySelector('.btn-icon'), {
+                x: 3,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
+    });
+    
+    button.addEventListener('mouseleave', () => {
+        if (!isMobile) {
+            gsap.to(button, {
+                scale: 1,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+            
+            // Reset button text and icon
+            gsap.to(button.querySelector('.btn-text'), {
+                x: 0,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+            
+            gsap.to(button.querySelector('.btn-icon'), {
+                x: 0,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
     });
 });
 
-// Parallax background elements
-gsap.utils.toArray('.bg-element').forEach((element, index) => {
-    gsap.to(element, {
-        scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true
-        },
-        y: (index + 1) * 50,
-        rotation: (index + 1) * 10,
-        ease: 'none'
+// Responsive scroll-triggered animations
+const scrollAnimations = () => {
+    // Feature cards animations
+    gsap.utils.toArray('.feature-card').forEach((card, index) => {
+        gsap.from(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse'
+            },
+            y: isMobile ? 30 : 50,
+            opacity: 0,
+            duration: currentSettings.duration,
+            delay: index * (isMobile ? 0.05 : 0.1),
+            ease: currentSettings.ease
+        });
     });
-});
+
+    // Step cards animations
+    gsap.utils.toArray('.step-card').forEach((card, index) => {
+        gsap.from(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse'
+            },
+            x: index % 2 === 0 ? (isMobile ? -30 : -50) : (isMobile ? 30 : 50),
+            opacity: 0,
+            duration: currentSettings.duration,
+            delay: index * (isMobile ? 0.1 : 0.2),
+            ease: currentSettings.ease
+        });
+    });
+
+    // Location items animations
+    gsap.utils.toArray('.location-item').forEach((item, index) => {
+        gsap.from(item, {
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse'
+            },
+            x: isMobile ? -20 : -30,
+            opacity: 0,
+            duration: currentSettings.duration,
+            delay: index * (isMobile ? 0.05 : 0.1),
+            ease: currentSettings.ease
+        });
+    });
+};
+
+// Initialize scroll animations
+scrollAnimations();
+
+// Responsive parallax effects (only on larger screens)
+if (!isMobile) {
+    gsap.utils.toArray('.shape').forEach((element, index) => {
+        gsap.to(element, {
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            },
+            y: (index + 1) * 50,
+            rotation: (index + 1) * 10,
+            ease: 'none'
+        });
+    });
+}
 
 // Map pins animation
 function createMapPins() {
     const map = document.getElementById('map');
+    if (!map) return;
+    
     const locations = [
         { x: 20, y: 30, name: 'Downtown' },
         { x: 70, y: 40, name: 'University' },
@@ -203,8 +421,8 @@ function createMapPins() {
         gsap.from(pin, {
             scale: 0,
             opacity: 0,
-            duration: 0.8,
-            delay: index * 0.2,
+            duration: currentSettings.duration,
+            delay: index * (isMobile ? 0.1 : 0.2),
             ease: 'back.out(1.7)',
             scrollTrigger: {
                 trigger: '.map',
@@ -271,55 +489,60 @@ document.head.appendChild(styleSheet);
 // Initialize map pins
 createMapPins();
 
-// Zone selector interactions
-document.querySelectorAll('.zone-option').forEach(option => {
-    option.addEventListener('click', () => {
-        // Remove active class from all options
-        document.querySelectorAll('.zone-option').forEach(opt => {
-            opt.classList.remove('active');
-        });
-        
-        // Add active class to clicked option
-        option.classList.add('active');
-        
-        // Animate the selection
-        gsap.to(option, {
-            scale: 1.1,
-            duration: 0.2,
-            ease: 'power2.out',
-            yoyo: true,
-            repeat: 1
+// Responsive interactions
+const responsiveInteractions = () => {
+    // Zone selector interactions
+    document.querySelectorAll('.zone-option').forEach(option => {
+        option.addEventListener('click', () => {
+            // Remove active class from all options
+            document.querySelectorAll('.zone-option').forEach(opt => {
+                opt.classList.remove('active');
+            });
+            
+            // Add active class to clicked option
+            option.classList.add('active');
+            
+            // Animate the selection
+            gsap.to(option, {
+                scale: 1.1,
+                duration: 0.2,
+                ease: 'power2.out',
+                yoyo: true,
+                repeat: 1
+            });
         });
     });
-});
 
-// Pack selector interactions
-document.querySelectorAll('.pack-option').forEach(option => {
-    option.addEventListener('click', () => {
-        // Animate the selection
-        gsap.to(option, {
-            scale: 1.1,
-            duration: 0.2,
-            ease: 'power2.out',
-            yoyo: true,
-            repeat: 1
+    // Pack selector interactions
+    document.querySelectorAll('.pack-option').forEach(option => {
+        option.addEventListener('click', () => {
+            // Animate the selection
+            gsap.to(option, {
+                scale: 1.1,
+                duration: 0.2,
+                ease: 'power2.out',
+                yoyo: true,
+                repeat: 1
+            });
         });
     });
-});
 
-// Location item interactions
-document.querySelectorAll('.location-item').forEach(item => {
-    item.addEventListener('click', () => {
-        // Animate the selection
-        gsap.to(item, {
-            scale: 1.02,
-            duration: 0.2,
-            ease: 'power2.out',
-            yoyo: true,
-            repeat: 1
+    // Location item interactions
+    document.querySelectorAll('.location-item').forEach(item => {
+        item.addEventListener('click', () => {
+            // Animate the selection
+            gsap.to(item, {
+                scale: 1.02,
+                duration: 0.2,
+                ease: 'power2.out',
+                yoyo: true,
+                repeat: 1
+            });
         });
     });
-});
+};
+
+responsiveInteractions();
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -331,7 +554,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 duration: 1,
                 scrollTo: {
                     y: target,
-                    offsetY: 70
+                    offsetY: isMobile ? 60 : 70
                 },
                 ease: 'power3.inOut'
             });
@@ -339,119 +562,122 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Button hover effects
-document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('mouseenter', () => {
-        gsap.to(button, {
-            scale: 1.05,
-            duration: 0.2,
-            ease: 'power2.out'
+// Responsive hover effects (only on larger screens)
+if (!isMobile) {
+    // Button hover effects
+    document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            gsap.to(button, {
+                scale: 1.05,
+                duration: 0.2,
+                ease: 'power2.out'
+            });
+        });
+        
+        button.addEventListener('mouseleave', () => {
+            gsap.to(button, {
+                scale: 1,
+                duration: 0.2,
+                ease: 'power2.out'
+            });
         });
     });
-    
-    button.addEventListener('mouseleave', () => {
-        gsap.to(button, {
-            scale: 1,
-            duration: 0.2,
-            ease: 'power2.out'
-        });
-    });
-});
 
-// Feature card hover effects
-document.querySelectorAll('.feature-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        gsap.to(card, {
-            y: -10,
-            duration: 0.3,
-            ease: 'power2.out'
+    // Feature card hover effects
+    document.querySelectorAll('.feature-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+                y: -10,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                y: 0,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
         });
     });
-    
-    card.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-            y: 0,
-            duration: 0.3,
-            ease: 'power2.out'
-        });
-    });
-});
 
-// Step card hover effects
-document.querySelectorAll('.step-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        gsap.to(card, {
-            scale: 1.02,
-            duration: 0.3,
-            ease: 'power2.out'
+    // Step card hover effects
+    document.querySelectorAll('.step-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+                scale: 1.02,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                scale: 1,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
         });
     });
-    
-    card.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-            scale: 1,
-            duration: 0.3,
-            ease: 'power2.out'
-        });
-    });
-});
 
-// Social link hover effects
-document.querySelectorAll('.social-link').forEach(link => {
-    link.addEventListener('mouseenter', () => {
-        gsap.to(link, {
-            scale: 1.2,
-            duration: 0.2,
-            ease: 'power2.out'
+    // Social link hover effects
+    document.querySelectorAll('.social-link').forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            gsap.to(link, {
+                scale: 1.2,
+                duration: 0.2,
+                ease: 'power2.out'
+            });
+        });
+        
+        link.addEventListener('mouseleave', () => {
+            gsap.to(link, {
+                scale: 1,
+                duration: 0.2,
+                ease: 'power2.out'
+            });
         });
     });
-    
-    link.addEventListener('mouseleave', () => {
-        gsap.to(link, {
-            scale: 1,
-            duration: 0.2,
-            ease: 'power2.out'
-        });
-    });
-});
 
-// Product item hover effects
-document.querySelectorAll('.product-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        gsap.to(item, {
-            scale: 1.1,
-            duration: 0.2,
-            ease: 'power2.out'
+    // Product item hover effects
+    document.querySelectorAll('.product-item').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            gsap.to(item, {
+                scale: 1.1,
+                duration: 0.2,
+                ease: 'power2.out'
+            });
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            gsap.to(item, {
+                scale: 1,
+                duration: 0.2,
+                ease: 'power2.out'
+            });
         });
     });
-    
-    item.addEventListener('mouseleave', () => {
-        gsap.to(item, {
-            scale: 1,
-            duration: 0.2,
-            ease: 'power2.out'
-        });
-    });
-});
 
-// Control button hover effects
-document.querySelectorAll('.control-button').forEach(button => {
-    button.addEventListener('mouseenter', () => {
-        gsap.to(button, {
-            scale: 1.2,
-            duration: 0.2,
-            ease: 'power2.out'
+    // Control button hover effects
+    document.querySelectorAll('.control-button').forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            gsap.to(button, {
+                scale: 1.2,
+                duration: 0.2,
+                ease: 'power2.out'
+            });
+        });
+        
+        button.addEventListener('mouseleave', () => {
+            gsap.to(button, {
+                scale: 1,
+                duration: 0.2,
+                ease: 'power2.out'
+            });
         });
     });
-    
-    button.addEventListener('mouseleave', () => {
-        gsap.to(button, {
-            scale: 1,
-            duration: 0.2,
-            ease: 'power2.out'
-        });
-    });
-});
+}
 
 // Mobile menu toggle
 const hamburger = document.querySelector('.hamburger');
@@ -514,10 +740,17 @@ mobileStyleSheet.textContent = mobileMenuStyles;
 document.head.appendChild(mobileStyleSheet);
 
 // Performance optimization for mobile
-if (window.innerWidth <= 768) {
+if (isMobile) {
     // Reduce animation complexity on mobile
-    gsap.set('.bg-element', { opacity: 0.5 });
+    gsap.set('.shape', { opacity: 0.5 });
     gsap.set('.vending-machine', { opacity: 0.8 });
+    gsap.set('.particle', { opacity: 0.3 });
+    
+    // Disable some animations on very small screens
+    if (window.innerWidth <= 375) {
+        gsap.set('.animated-icons', { display: 'none' });
+        gsap.set('.wave-container', { display: 'none' });
+    }
 }
 
 // Initialize all animations when page loads
@@ -533,7 +766,24 @@ window.addEventListener('load', () => {
     });
 });
 
-// Handle window resize
+// Handle window resize with debouncing
+let resizeTimer;
 window.addEventListener('resize', () => {
-    ScrollTrigger.refresh();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        ScrollTrigger.refresh();
+        
+        // Re-check device type
+        const newIsMobile = window.innerWidth <= 768;
+        if (newIsMobile !== isMobile) {
+            location.reload(); // Reload page if device type changes significantly
+        }
+    }, 250);
+});
+
+// Handle orientation change
+window.addEventListener('orientationchange', () => {
+    setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 500);
 }); 
