@@ -133,40 +133,6 @@ body {
     color: var(--primary-gold) !important;
 }
 
-/* Language Switcher Styles */
-.navbar-nav .dropdown-menu {
-    background-color: var(--darker-blue);
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-}
-
-.navbar-nav .dropdown-item {
-    color: var(--white);
-    padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
-}
-
-.navbar-nav .dropdown-item:hover {
-    background-color: rgba(255, 215, 0, 0.1);
-    color: var(--primary-gold);
-}
-
-.navbar-nav .dropdown-item.active {
-    background-color: var(--primary-gold);
-    color: var(--black);
-    font-weight: bold;
-}
-
-.navbar-nav .dropdown-toggle::after {
-    color: var(--white);
-}
-
-.navbar-nav .dropdown-toggle:hover::after {
-    color: var(--primary-gold);
-}
-
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, var(--dark-blue) 0%, var(--darker-blue) 100%);
