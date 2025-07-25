@@ -872,6 +872,14 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Navbar mobile styles */
+    .navbar .container {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
     .hero-headline {
         font-size: 2rem;
     }
