@@ -106,6 +106,50 @@ body {
     transform: scale(1.05);
 }
 
+/* Logo Styles */
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.navbar-brand:hover .navbar-logo {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.4));
+}
+
+.hero-logo-img {
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 4px 12px rgba(255, 215, 0, 0.3));
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.hero-logo-img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.5));
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.footer-logo {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.4));
+}
+
 .navbar-nav .nav-link {
     color: var(--white) !important;
     font-weight: 500;
@@ -1085,6 +1129,18 @@ body {
         font-size: 1.3rem;
     }
     
+    .navbar-logo {
+        height: 35px;
+    }
+    
+    .hero-logo-img {
+        max-width: 50px;
+    }
+    
+    .footer-logo {
+        height: 35px;
+    }
+    
     .btn-lg {
         padding: 0.75rem 1.5rem;
         font-size: 0.9rem;
@@ -1267,6 +1323,18 @@ body {
     
     .hero-logo h1 {
         font-size: 1.8rem;
+    }
+    
+    .navbar-logo {
+        height: 30px;
+    }
+    
+    .hero-logo-img {
+        max-width: 50px;
+    }
+    
+    .footer-logo {
+        height: 30px;
     }
     
     .section-title {
