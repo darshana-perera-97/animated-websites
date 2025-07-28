@@ -1,466 +1,774 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LCB - あなたのビジョンを実現</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
 
-<body class="dark-theme">
+  <body class="dark-theme">
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="./assets/Group.png" alt="LCB Logo" class="navbar-logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home" data-ja="ホーム" data-en="Home">ホーム</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services" data-ja="サービス" data-en="Services">サービス</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about" data-ja="会社概要" data-en="About">会社概要</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact" data-ja="お問い合わせ" data-en="Contact">お問い合わせ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="en.html">
-                            <i class="fas fa-globe me-1"></i>English
-                        </a>
-                    </li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="./assets/Group.png" alt="LCB Logo" class="navbar-logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home" data-ja="ホーム" data-en="Home"
+                >ホーム</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#services"
+                data-ja="サービス"
+                data-en="Services"
+                >サービス</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#about"
+                data-ja="会社概要"
+                data-en="About"
+                >会社概要</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#contact"
+                data-ja="お問い合わせ"
+                data-en="Contact"
+                >お問い合わせ</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="en.html">
+                <i class="fas fa-globe me-1"></i>English
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
-        <!-- Animated particles -->
-        <div class="particles d-none d-md-block">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
+      <!-- Animated particles -->
+      <div class="particles d-none d-md-block">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
 
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-xl-8 col-lg-10 col-md-11 col-sm-12">
-                    <div class="hero-logo mb-4" data-aos="fade-down" data-aos-duration="1000">
-                        <img src="./assets/Vector.png" alt="LCB Logo"
-                            class="hero-logo-img">
-                    </div>
-                    <h2 class="hero-headline mb-3" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                        あなたのビジョンを実現することが私たちのビジョンです</h2>
-                    <p class="hero-subtitle mb-4" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
-                        コンサルティングとインターネットサービスを通じてあなたの未来をサポート</p>
-                    <a href="#services" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="900"
-                        data-aos-duration="1000">始める</a>
-                </div>
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-xl-8 col-lg-10 col-md-11 col-sm-12">
+            <div
+              class="hero-logo mb-4"
+              data-aos="fade-down"
+              data-aos-duration="1000"
+            >
+              <img
+                src="./assets/Vector.png"
+                alt="LCB Logo"
+                class="hero-logo-img"
+              />
             </div>
+            <h2
+              class="hero-headline mb-3"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-duration="1000"
+            >
+              あなたのビジョンを実現することが私たちのビジョンです
+            </h2>
+            <p
+              class="hero-subtitle mb-4"
+              data-aos="fade-up"
+              data-aos-delay="600"
+              data-aos-duration="1000"
+            >
+              コンサルティングとインターネットサービスを通じてあなたの未来をサポート
+            </p>
+            <a
+              href="#services"
+              class="btn btn-primary btn-lg"
+              data-aos="fade-up"
+              data-aos-delay="900"
+              data-aos-duration="1000"
+              >始める</a
+            >
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-10 col-lg-11 col-md-12">
-                    <h2 class="section-title text-center mb-5" data-aos="fade-up" data-aos-duration="1000">
-                        私たちのサービス</h2>
-                    <div class="row g-4">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4" data-aos="fade-right"
-                            data-aos-duration="1000" data-aos-delay="200">
-                            <div class="service-card h-100">
-                                <div class="service-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <h3 class="service-title">
-                                    人材コンサルティング</h3>
-                                <p class="service-description">
-                                    戦略的人材採用、従業員育成、組織設計により、あなたの労働力を最適化します。</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4" data-aos="fade-left"
-                            data-aos-duration="1000" data-aos-delay="400">
-                            <div class="service-card h-100">
-                                <div class="service-icon">
-                                    <i class="fas fa-globe"></i>
-                                </div>
-                                <h3 class="service-title">インターネットサービス
-                                </h3>
-                                <p class="service-description">
-                                    現代のビジネス向けの信頼性の高い接続ソリューション、ネットワークインフラ、デジタル変革サービス。</p>
-                            </div>
-                        </div>
-                    </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-10 col-lg-11 col-md-12">
+            <h2
+              class="section-title text-center mb-5"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              私たちのサービス
+            </h2>
+            <div class="row g-4">
+              <div
+                class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4"
+                data-aos="fade-right"
+                data-aos-duration="1000"
+                data-aos-delay="200"
+              >
+                <div class="service-card h-100">
+                  <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                  </div>
+                  <h3 class="service-title">人材コンサルティング</h3>
+                  <p class="service-description">
+                    戦略的人材採用、従業員育成、組織設計により、あなたの労働力を最適化します。
+                  </p>
                 </div>
+              </div>
+              <div
+                class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                data-aos-delay="400"
+              >
+                <div class="service-card h-100">
+                  <div class="service-icon">
+                    <i class="fas fa-globe"></i>
+                  </div>
+                  <h3 class="service-title">インターネットサービス</h3>
+                  <p class="service-description">
+                    現代のビジネス向けの信頼性の高い接続ソリューション、ネットワークインフラ、デジタル変革サービス。
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Transform Section -->
     <section class="transform-section">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-xl-8 col-lg-10 col-md-11 col-sm-12">
-                    <h2 class="transform-headline mb-3" data-aos="fade-up" data-aos-duration="1000"
-                        data-ja="変革の準備はできていますか？" data-en="Ready to Transform?">変革の準備はできていますか？</h2>
-                    <p class="transform-subtitle mb-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000"
-                        data-ja="私たちがあなたのビジョンを実現する方法を発見してください" data-en="Discover how we can fulfill your vision">
-                        私たちがあなたのビジョンを実現する方法を発見してください</p>
-                    <a href="#about" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="600"
-                        data-aos-duration="1000" data-ja="会社概要を詳しく見る" data-en="Explore Our Company Profile">会社概要を詳しく見る
-                        <i class="fas fa-arrow-right ms-2"></i></a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-xl-8 col-lg-10 col-md-11 col-sm-12">
+            <h2
+              class="transform-headline mb-3"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-ja="変革の準備はできていますか？"
+              data-en="Ready to Transform?"
+            >
+              変革の準備はできていますか？
+            </h2>
+            <p
+              class="transform-subtitle mb-4"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-duration="1000"
+              data-ja="私たちがあなたのビジョンを実現する方法を発見してください"
+              data-en="Discover how we can fulfill your vision"
+            >
+              私たちがあなたのビジョンを実現する方法を発見してください
+            </p>
+            <a
+              href="#about"
+              class="btn btn-primary btn-lg"
+              data-aos="fade-up"
+              data-aos-delay="600"
+              data-aos-duration="1000"
+              data-ja="会社概要を詳しく見る"
+              data-en="Explore Our Company Profile"
+              >会社概要を詳しく見る <i class="fas fa-arrow-right ms-2"></i
+            ></a>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Business Operations Section -->
     <section class="operations-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-10 col-lg-11 col-md-12">
-                    <h2 class="section-title text-center mb-5" data-aos="fade-up" data-aos-duration="1000"
-                        data-ja="ビジネスオペレーションを統合" data-en="UNIFY YOUR BUSINESS OPERATIONS">ビジネスオペレーションを統合</h2>
-                    <div class="operations-list">
-                        <div class="operation-step" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"
-                            data-aos-offset="200">
-                            <div class="step-icon step-analyze">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <span class="step-text" data-ja="分析" data-en="ANALYZE">分析</span>
-                        </div>
-                        <div class="operation-step" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400"
-                            data-aos-offset="200">
-                            <div class="step-icon step-implement">
-                                <i class="fas fa-cogs"></i>
-                            </div>
-                            <span class="step-text" data-ja="実装" data-en="IMPLEMENT">実装</span>
-                        </div>
-                        <div class="operation-step" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="600"
-                            data-aos-offset="200">
-                            <div class="step-icon step-optimize">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <span class="step-text" data-ja="最適化" data-en="OPTIMIZE">最適化</span>
-                        </div>
-                    </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-10 col-lg-11 col-md-12">
+            <h2
+              class="section-title text-center mb-5"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-ja="ビジネスオペレーションを統合"
+              data-en="UNIFY YOUR BUSINESS OPERATIONS"
+            >
+              ビジネスオペレーションを統合
+            </h2>
+            <div class="operations-list">
+              <div
+                class="operation-step"
+                data-aos="fade-right"
+                data-aos-duration="1000"
+                data-aos-delay="200"
+                data-aos-offset="200"
+              >
+                <div class="step-icon step-analyze">
+                  <i class="fas fa-search"></i>
                 </div>
+                <span class="step-text" data-ja="分析" data-en="ANALYZE"
+                  >分析</span
+                >
+              </div>
+              <div
+                class="operation-step"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                data-aos-delay="400"
+                data-aos-offset="200"
+              >
+                <div class="step-icon step-implement">
+                  <i class="fas fa-cogs"></i>
+                </div>
+                <span class="step-text" data-ja="実装" data-en="IMPLEMENT"
+                  >実装</span
+                >
+              </div>
+              <div
+                class="operation-step"
+                data-aos="fade-right"
+                data-aos-duration="1000"
+                data-aos-delay="600"
+                data-aos-offset="200"
+              >
+                <div class="step-icon step-optimize">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <span class="step-text" data-ja="最適化" data-en="OPTIMIZE"
+                  >最適化</span
+                >
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-8 col-lg-10 col-md-11 col-sm-12">
-                    <h2 class="testimonials-title text-center mb-5" data-aos="fade-up" data-aos-duration="1000"
-                        data-ja="お客様の声" data-en="What Our Clients Say">お客様の声</h2>
-                    <div class="testimonial-card" data-aos="zoom-in" data-aos-duration="1000">
-                        <blockquote class="testimonial-quote">
-                            <span
-                                data-ja="LCBは革新的なソリューションで私たちのオペレーションを変革しました。HRとテクノロジーの両方における彼らのチームの専門知識が大きな違いをもたらしました。"
-                                data-en="LCB transformed our operations with their innovative solutions. Their team's expertise in both HR and technology made all the difference.">LCBは革新的なソリューションで私たちのオペレーションを変革しました。HRとテクノロジーの両方における彼らのチームの専門知識が大きな違いをもたらしました。</span>
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <div class="author-avatar"></div>
-                            <div class="author-info">
-                                <h4 class="author-name" data-ja="田中 花子" data-en="Sarah Johnson">田中 花子</h4>
-                                <p class="author-title" data-ja="CEO, テックビジョン株式会社" data-en="CEO, TechVision Inc.">CEO,
-                                    テックビジョン株式会社</p>
-                            </div>
-                        </div>
-                    </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-8 col-lg-10 col-md-11 col-sm-12">
+            <h2
+              class="testimonials-title text-center mb-5"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-ja="お客様の声"
+              data-en="What Our Clients Say"
+            >
+              お客様の声
+            </h2>
+            <div
+              class="testimonial-card"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
+              <blockquote class="testimonial-quote">
+                <span
+                  data-ja="LCBは革新的なソリューションで私たちのオペレーションを変革しました。HRとテクノロジーの両方における彼らのチームの専門知識が大きな違いをもたらしました。"
+                  data-en="LCB transformed our operations with their innovative solutions. Their team's expertise in both HR and technology made all the difference."
+                  >LCBは革新的なソリューションで私たちのオペレーションを変革しました。HRとテクノロジーの両方における彼らのチームの専門知識が大きな違いをもたらしました。</span
+                >
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar"></div>
+                <div class="author-info">
+                  <h4
+                    class="author-name"
+                    data-ja="田中 花子"
+                    data-en="Sarah Johnson"
+                  >
+                    田中 花子
+                  </h4>
+                  <p
+                    class="author-title"
+                    data-ja="CEO, テックビジョン株式会社"
+                    data-en="CEO, TechVision Inc."
+                  >
+                    CEO, テックビジョン株式会社
+                  </p>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Features Section -->
     <section class="features-section">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-xl-10 col-lg-11 col-md-12">
-                    <div class="features-text mb-4" data-aos="fade-up" data-aos-duration="1000">
-                        <p class="feature-line" data-ja="非接触ソリューション？もちろん。" data-en="Contactless solutions? Sure.">
-                            非接触ソリューション？もちろん。</p>
-                        <p class="feature-line" data-ja="リモート管理？それも対応。" data-en="Remote management? Also check.">
-                            リモート管理？それも対応。</p>
-                    </div>
-                    <div class="features-image" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                            alt="Modern office meeting" class="img-fluid rounded">
-                    </div>
-                </div>
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-xl-10 col-lg-11 col-md-12">
+            <div
+              class="features-text mb-4"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              <p
+                class="feature-line"
+                data-ja="非接触ソリューション？もちろん。"
+                data-en="Contactless solutions? Sure."
+              >
+                非接触ソリューション？もちろん。
+              </p>
+              <p
+                class="feature-line"
+                data-ja="リモート管理？それも対応。"
+                data-en="Remote management? Also check."
+              >
+                リモート管理？それも対応。
+              </p>
             </div>
+            <div
+              class="features-image"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-delay="300"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Modern office meeting"
+                class="img-fluid rounded"
+              />
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Final CTA Section -->
     <section class="final-cta-section">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-xl-8 col-lg-10 col-md-11 col-sm-12">
-                    <h2 class="final-cta-headline mb-4" data-aos="fade-up" data-aos-duration="1000"
-                        data-ja="LCB：あらゆるビジネスニーズに対応するあなたのパートナー" data-en="LCB: Your Go-To for Every Business Need">
-                        LCB：あらゆるビジネスニーズに対応するあなたのパートナー</h2>
-                    <a href="#contact" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="300"
-                        data-aos-duration="1000" data-ja="今すぐお問い合わせ" data-en="Contact Now">今すぐお問い合わせ</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-xl-8 col-lg-10 col-md-11 col-sm-12">
+            <h2
+              class="final-cta-headline mb-4"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-ja="LCB：あらゆるビジネスニーズに対応するあなたのパートナー"
+              data-en="LCB: Your Go-To for Every Business Need"
+            >
+              LCB：あらゆるビジネスニーズに対応するあなたのパートナー
+            </h2>
+            <a
+              href="#contact"
+              class="btn btn-primary btn-lg"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-duration="1000"
+              data-ja="今すぐお問い合わせ"
+              data-en="Contact Now"
+              >今すぐお問い合わせ</a
+            >
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer-section">
-        <div class="container">
-            <div class="row">
-                <!-- Company Info -->
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-duration="1000"
-                    data-aos-delay="100">
-                    <div class="footer-brand mb-3">
-                        <img src="https://via.placeholder.com/120x40/FFD700/000000?text=LCB" alt="LCB Logo"
-                            class="footer-logo">
-                    </div>
-                    <p class="footer-description mb-3"
-                        data-ja="コンサルティングとインターネットサービスを通じてあなたの未来をサポート。革新的なソリューションでビジネスのオペレーション変革を支援します。"
-                        data-en="Supporting your future through consulting and internet services. We help businesses transform their operations with innovative solutions.">
-                        コンサルティングとインターネットサービスを通じてあなたの未来をサポート。革新的なソリューションでビジネスのオペレーション変革を支援します。</p>
-                    <div class="footer-contact">
-                        <p class="contact-item"><i class="fas fa-phone me-2"></i>+81 (03) 1234-5678</p>
-                        <p class="contact-item"><i class="fas fa-envelope me-2"></i>info@lcbconsulting.jp</p>
-                        <p class="contact-item"><i class="fas fa-map-marker-alt me-2"></i>〒100-0001 東京都千代田区<br>千代田1-1-1
-                            ビジネスビル5階</p>
-                    </div>
+      <div class="container">
+        <div class="row">
+          <!-- Company Info -->
+          <div
+            class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="100"
+          >
+            <div class="footer-brand mb-3">
+              <img
+                src="./assets/Group.png"
+                alt="LCB Logo"
+                class="footer-logo"
+              />
+            </div>
+            <p
+              class="footer-description mb-3"
+              data-ja="コンサルティングとインターネットサービスを通じてあなたの未来をサポート。革新的なソリューションでビジネスのオペレーション変革を支援します。"
+              data-en="Supporting your future through consulting and internet services. We help businesses transform their operations with innovative solutions."
+            >
+              コンサルティングとインターネットサービスを通じてあなたの未来をサポート。革新的なソリューションでビジネスのオペレーション変革を支援します。
+            </p>
+            <div class="footer-contact">
+              <p class="contact-item">
+                <i class="fas fa-phone me-2"></i>+81 (03) 1234-5678
+              </p>
+              <p class="contact-item">
+                <i class="fas fa-envelope me-2"></i>info@lcbconsulting.jp
+              </p>
+              <p class="contact-item">
+                <i class="fas fa-map-marker-alt me-2"></i>〒100-0001
+                東京都千代田区<br />千代田1-1-1 ビジネスビル5階
+              </p>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div
+            class="col-xl-2 col-lg-2 col-md-6 col-sm-6 mb-4"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
+            <h5
+              class="footer-title"
+              data-ja="クイックリンク"
+              data-en="Quick Links"
+            >
+              クイックリンク
+            </h5>
+            <ul class="footer-links">
+              <li>
+                <a href="#home" data-ja="ホーム" data-en="Home">ホーム</a>
+              </li>
+              <li>
+                <a href="#services" data-ja="サービス" data-en="Services"
+                  >サービス</a
+                >
+              </li>
+              <li>
+                <a href="#about" data-ja="会社概要" data-en="About Us"
+                  >会社概要</a
+                >
+              </li>
+              <li>
+                <a href="#contact" data-ja="お問い合わせ" data-en="Contact"
+                  >お問い合わせ</a
+                >
+              </li>
+              <li>
+                <a href="#careers" data-ja="採用情報" data-en="Careers"
+                  >採用情報</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div
+            class="col-xl-2 col-lg-2 col-md-6 col-sm-6 mb-4"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="300"
+          >
+            <h5 class="footer-title" data-ja="サービス" data-en="Services">
+              サービス
+            </h5>
+            <ul class="footer-links">
+              <li>
+                <a
+                  href="#hr-consulting"
+                  data-ja="人材コンサルティング"
+                  data-en="HR Consulting"
+                  >人材コンサルティング</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#internet-services"
+                  data-ja="インターネットサービス"
+                  data-en="Internet Services"
+                  >インターネットサービス</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#digital-transformation"
+                  data-ja="デジタル変革"
+                  data-en="Digital Transformation"
+                  >デジタル変革</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#strategic-planning"
+                  data-ja="戦略的計画"
+                  data-en="Strategic Planning"
+                  >戦略的計画</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#technology-solutions"
+                  data-ja="技術ソリューション"
+                  data-en="Technology Solutions"
+                  >技術ソリューション</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Connect & Newsletter -->
+          <div
+            class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-4"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="400"
+          >
+            <h5
+              class="footer-title"
+              data-ja="お問い合わせ"
+              data-en="Connect With Us"
+            >
+              お問い合わせ
+            </h5>
+            <p
+              class="footer-description mb-3"
+              data-ja="最新のインサイトと業界ニュースをお届けします。"
+              data-en="Stay updated with our latest insights and industry news."
+            >
+              最新のインサイトと業界ニュースをお届けします。
+            </p>
+
+            <!-- Newsletter Signup -->
+            <div class="newsletter-signup mb-4">
+              <form class="newsletter-form">
+                <div class="input-group">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="メールアドレスを入力"
+                    data-ja-placeholder="メールアドレスを入力"
+                    data-en-placeholder="Enter your email"
+                    required
+                  />
+                  <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-paper-plane"></i>
+                  </button>
                 </div>
-
-                <!-- Quick Links -->
-                <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 mb-4" data-aos="fade-up" data-aos-duration="1000"
-                    data-aos-delay="200">
-                    <h5 class="footer-title" data-ja="クイックリンク" data-en="Quick Links">クイックリンク</h5>
-                    <ul class="footer-links">
-                        <li><a href="#home" data-ja="ホーム" data-en="Home">ホーム</a></li>
-                        <li><a href="#services" data-ja="サービス" data-en="Services">サービス</a></li>
-                        <li><a href="#about" data-ja="会社概要" data-en="About Us">会社概要</a></li>
-                        <li><a href="#contact" data-ja="お問い合わせ" data-en="Contact">お問い合わせ</a></li>
-                        <li><a href="#careers" data-ja="採用情報" data-en="Careers">採用情報</a></li>
-                    </ul>
-                </div>
-
-                <!-- Services -->
-                <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 mb-4" data-aos="fade-up" data-aos-duration="1000"
-                    data-aos-delay="300">
-                    <h5 class="footer-title" data-ja="サービス" data-en="Services">サービス</h5>
-                    <ul class="footer-links">
-                        <li><a href="#hr-consulting" data-ja="人材コンサルティング" data-en="HR Consulting">人材コンサルティング</a></li>
-                        <li><a href="#internet-services" data-ja="インターネットサービス"
-                                data-en="Internet Services">インターネットサービス</a></li>
-                        <li><a href="#digital-transformation" data-ja="デジタル変革"
-                                data-en="Digital Transformation">デジタル変革</a></li>
-                        <li><a href="#strategic-planning" data-ja="戦略的計画" data-en="Strategic Planning">戦略的計画</a></li>
-                        <li><a href="#technology-solutions" data-ja="技術ソリューション"
-                                data-en="Technology Solutions">技術ソリューション</a></li>
-                    </ul>
-                </div>
-
-                <!-- Connect & Newsletter -->
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-4" data-aos="fade-up" data-aos-duration="1000"
-                    data-aos-delay="400">
-                    <h5 class="footer-title" data-ja="お問い合わせ" data-en="Connect With Us">お問い合わせ</h5>
-                    <p class="footer-description mb-3" data-ja="最新のインサイトと業界ニュースをお届けします。"
-                        data-en="Stay updated with our latest insights and industry news.">最新のインサイトと業界ニュースをお届けします。</p>
-
-                    <!-- Newsletter Signup -->
-                    <div class="newsletter-signup mb-4">
-                        <form class="newsletter-form">
-                            <div class="input-group">
-                                <input type="email" class="form-control" placeholder="メールアドレスを入力"
-                                    data-ja-placeholder="メールアドレスを入力" data-en-placeholder="Enter your email" required>
-                                <button class="btn btn-primary" type="submit">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <!-- Social Links -->
-                    <div class="social-links-container">
-                        <h6 class="social-title mb-2" data-ja="フォローする" data-en="Follow Us">フォローする</h6>
-                        <div class="social-icons">
-                            <a href="#" class="social-icon" title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="social-icon" title="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-icon" title="Facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-icon" title="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="social-icon" title="YouTube">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+              </form>
             </div>
 
-            <!-- Bottom Footer -->
-            <div class="footer-bottom">
-                <div class="row align-items-center">
-                    <div class="col-md-6 col-sm-12 text-center text-md-start">
-                        <p class="footer-copyright mb-0" data-ja="© 2025 LCBコンサルティング. All rights reserved."
-                            data-en="© 2025 LCB Consulting. All rights reserved.">© 2025 LCBコンサルティング. All rights
-                            reserved.</p>
-                    </div>
-                    <div class="col-md-6 col-sm-12 text-center text-md-end">
-                        <ul class="footer-legal">
-                            <li><a href="#privacy" data-ja="プライバシーポリシー" data-en="Privacy Policy">プライバシーポリシー</a></li>
-                            <li><a href="#terms" data-ja="利用規約" data-en="Terms of Service">利用規約</a></li>
-                            <li><a href="#cookies" data-ja="Cookieポリシー" data-en="Cookie Policy">Cookieポリシー</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <!-- Social Links -->
+            <div class="social-links-container">
+              <h6
+                class="social-title mb-2"
+                data-ja="フォローする"
+                data-en="Follow Us"
+              >
+                フォローする
+              </h6>
+              <div class="social-icons">
+                <a href="#" class="social-icon" title="LinkedIn">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-icon" title="Twitter">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon" title="Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon" title="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" title="YouTube">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
             </div>
+          </div>
         </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6 col-sm-12 text-center text-md-start">
+              <p
+                class="footer-copyright mb-0"
+                data-ja="© 2025 LCBコンサルティング. All rights reserved."
+                data-en="© 2025 LCB Consulting. All rights reserved."
+              >
+                © 2025 LCBコンサルティング. All rights reserved.
+              </p>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center text-md-end">
+              <ul class="footer-legal">
+                <li>
+                  <a
+                    href="#privacy"
+                    data-ja="プライバシーポリシー"
+                    data-en="Privacy Policy"
+                    >プライバシーポリシー</a
+                  >
+                </li>
+                <li>
+                  <a href="#terms" data-ja="利用規約" data-en="Terms of Service"
+                    >利用規約</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#cookies"
+                    data-ja="Cookieポリシー"
+                    data-en="Cookie Policy"
+                    >Cookieポリシー</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS (Animate On Scroll)
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false,
-            offset: 100
-        });
+      // Initialize AOS (Animate On Scroll)
+      AOS.init({
+        duration: 1000,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false,
+        offset: 100,
+      });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
+          }
         });
+      });
 
-        // Navbar background change on scroll
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.backgroundColor = 'rgba(22, 33, 62, 0.95)';
-                navbar.style.backdropFilter = 'blur(10px)';
-            } else {
-                navbar.style.backgroundColor = 'var(--darker-blue)';
-                navbar.style.backdropFilter = 'none';
-            }
-        });
-
-        // Image loading animation
-        document.addEventListener('DOMContentLoaded', function () {
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                if (img.complete) {
-                    img.classList.add('loaded');
-                } else {
-                    img.addEventListener('load', function () {
-                        this.classList.add('loaded');
-                    });
-                }
-            });
-        });
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', function () {
-            const scrolled = window.pageYOffset;
-            const heroSection = document.querySelector('.hero-section');
-            if (heroSection) {
-                const rate = scrolled * -0.5;
-                heroSection.style.transform = `translateY(${rate}px)`;
-            }
-        });
-
-        // Counter animation for numbers (if any)
-        function animateCounters() {
-            const counters = document.querySelectorAll('[data-count]');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-count'));
-                const duration = 2000;
-                const step = target / (duration / 16);
-                let current = 0;
-
-                const timer = setInterval(() => {
-                    current += step;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    counter.textContent = Math.floor(current);
-                }, 16);
-            });
+      // Navbar background change on scroll
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.style.backgroundColor = "rgba(22, 33, 62, 0.95)";
+          navbar.style.backdropFilter = "blur(10px)";
+        } else {
+          navbar.style.backgroundColor = "var(--darker-blue)";
+          navbar.style.backdropFilter = "none";
         }
+      });
 
-        // Intersection Observer for counter animation
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    observer.unobserve(entry.target);
-                }
+      // Image loading animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const images = document.querySelectorAll("img");
+        images.forEach((img) => {
+          if (img.complete) {
+            img.classList.add("loaded");
+          } else {
+            img.addEventListener("load", function () {
+              this.classList.add("loaded");
             });
-        }, observerOptions);
-
-        // Observe elements with data-count attribute
-        document.querySelectorAll('[data-count]').forEach(el => {
-            observer.observe(el);
+          }
         });
+      });
 
-        // Add scroll progress indicator
-        window.addEventListener('scroll', function () {
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.body.offsetHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
+      // Parallax effect for hero section
+      window.addEventListener("scroll", function () {
+        const scrolled = window.pageYOffset;
+        const heroSection = document.querySelector(".hero-section");
+        if (heroSection) {
+          const rate = scrolled * -0.5;
+          heroSection.style.transform = `translateY(${rate}px)`;
+        }
+      });
 
-            // Create progress bar if it doesn't exist
-            let progressBar = document.querySelector('.scroll-progress');
-            if (!progressBar) {
-                progressBar = document.createElement('div');
-                progressBar.className = 'scroll-progress';
-                progressBar.style.cssText = `
+      // Counter animation for numbers (if any)
+      function animateCounters() {
+        const counters = document.querySelectorAll("[data-count]");
+        counters.forEach((counter) => {
+          const target = parseInt(counter.getAttribute("data-count"));
+          const duration = 2000;
+          const step = target / (duration / 16);
+          let current = 0;
+
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            counter.textContent = Math.floor(current);
+          }, 16);
+        });
+      }
+
+      // Intersection Observer for counter animation
+      const observerOptions = {
+        threshold: 0.5,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements with data-count attribute
+      document.querySelectorAll("[data-count]").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Add scroll progress indicator
+      window.addEventListener("scroll", function () {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.offsetHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+
+        // Create progress bar if it doesn't exist
+        let progressBar = document.querySelector(".scroll-progress");
+        if (!progressBar) {
+          progressBar = document.createElement("div");
+          progressBar.className = "scroll-progress";
+          progressBar.style.cssText = `
                     position: fixed;
                     top: 0;
                     left: 0;
@@ -470,45 +778,45 @@
                     z-index: 9999;
                     transition: width 0.1s ease;
                 `;
-                document.body.appendChild(progressBar);
-            }
-
-            progressBar.style.width = scrollPercent + '%';
-        });
-
-        // Add typing effect to hero headline
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
+          document.body.appendChild(progressBar);
         }
 
-        // Initialize typing effect when hero section is visible
-        const heroHeadline = document.querySelector('.hero-headline');
-        if (heroHeadline) {
-            const originalText = heroHeadline.textContent;
-            const heroObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        typeWriter(heroHeadline, originalText, 50);
-                        heroObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
+        progressBar.style.width = scrollPercent + "%";
+      });
 
-            heroObserver.observe(heroHeadline);
+      // Add typing effect to hero headline
+      function typeWriter(element, text, speed = 100) {
+        let i = 0;
+        element.innerHTML = "";
+
+        function type() {
+          if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
         }
+        type();
+      }
 
+      // Initialize typing effect when hero section is visible
+      const heroHeadline = document.querySelector(".hero-headline");
+      if (heroHeadline) {
+        const originalText = heroHeadline.textContent;
+        const heroObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                typeWriter(heroHeadline, originalText, 50);
+                heroObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
 
+        heroObserver.observe(heroHeadline);
+      }
     </script>
-</body>
-
+  </body>
 </html>
